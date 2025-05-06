@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sofia 🎸🥁</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #79a6d2, #e0f7fa);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            color: #003366;
+        }
+
+        .snow-animation {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(white 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: snowFloat 30s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes snowFloat {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin: 20px 0;
+        }
+
+        .instructions {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-box {
+            width: 90vw;
+            max-width: 400px;
+            height: 400px;
+            background-color: #ffffffdd;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .snowflakes {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .snowflake {
+            font-size: 28px;
+            position: absolute;
+            cursor: pointer;
+            user-select: none;
+            top: 0;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            pointer-events: auto;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(400px); opacity: 0; }
+        }
+
+        .gif-space {
+            margin-top: 20px;
+            height: 100px;
+        }
+
+        .letter {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,50,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px;
+        }
+
+        .envelope {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            box-shadow: 0 0 20px #fff;
+            animation: fadeIn 1s ease-in;
+            overflow-y: auto;
+            max-height: 90vh;
+            width: 100%;
+        }
+
+        .letter-content p {
+            text-align: left;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .letter-content h2 {
+            text-align: center;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #87CEFA;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .rotating-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6347;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .rotating-text span {
+            display: none;
+        }
+
+        .rotating-text span.active {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="snow-animation"></div>
+
+    <div class="main-content">
+        <h1>⛄ Sofia's Good Morning Game ⛄</h1>
+        <p class="instructions">Collect at least 10 snowflakes and see what happens! ❄️</p>
+
+        <div class="game-container">
+            <div class="game-box">
+                <p>Score: <span id="score">0</span> | Time: <span id="timer">60</span>s</p>
+                <div class="snowflakes" id="snowflakes"></div>
+            </div>
+
+            <div class="gif-space">
+                <img src="https://github.com/joskebinho2049/goodmorningsofia/blob/main/tumblr_mf49rn1Tlv1rfjowdo1_500%20(1).gif?raw=true" alt="Snowman GIF" class="snowman-gif">
+            </div>
+        </div>
+
+        <div class="rotating-text" id="rotating-text">
+        <div class="rotating-text" id="rotating-text">
+  <span class="active">You play guitar like it’s telling bedtime stories to the stars. ✨🎸</span>
+  <span>Your drumming could make sleepy bears dance. 🐻🥁</span>
+  <span>You speak English like it’s your third magical language. 🌟📚</span>
+  <span>Your talent could convince a cloud to start clapping. ☁️👏</span>
+  <span>You make snowflakes jealous with your sparkle. ❄️😄</span>
+  <span>You play music like your heart is telling secrets. 💖🎶</span>
+  <span>If smiles were stars, you'd be the whole galaxy. 🌌😊</span>
+  <span>Your English is smoother than a marshmallow in hot cocoa. 🍫☕</span>
+  <span>Your rhythm is more reliable than my alarm clock (and much cuter). ⏰🐰</span>
+  <span>You jam like a cozy campfire sings lullabies. 🔥🎵</span>
+  <span>You’re a fluffy snowball of pure awesome. ❄️💙</span>
+  <span>Your energy could make sunflowers bloom at night. 🌻🌙</span>
+  <span>Your talent is so bright, fireflies take notes. 🐞✨</span>
+  <span>You’re the warm fuzzy socks of conversation. 🧦💬</span>
+  <span>You talk like a tiny magical fox that learned English. 🦊🇬🇧</span>
+  <span>Your voice could soothe a baby dragon. 🐉💤</span>
+  <span>You’ve got more charm than a basket of kittens. 🧺🐱</span>
+  <span>If music had hugs, they’d sound like your riffs. 🤗🎸</span>
+  <span>Your creativity is like a bubble machine at a birthday party. 🫧🎂</span>
+  <span>You play like every note is getting a cuddle. 🎶🧸</span>
+  <span>Your presence is like finding an extra fry at the bottom of the bag. 🍟🎉</span>
+  <span>You talk like you just gave a unicorn a pep talk. 🦄🎙️</span>
+  <span>Your English is sweeter than cake on a Sunday. 🍰📅</span>
+  <span>Your ideas sparkle more than glitter on a cat. 🐈✨</span>
+  <span>You drum like your sticks are having a dance party. 🥁🕺</span>
+  <span>Your laugh could wake up hibernating bears — gently. 🐻💤😄</span>
+  <span>You’re the cozy hoodie of human beings. 👕❤️</span>
+  <span>You’re like a tiny, musical thunderstorm — adorable and powerful. 🌩️🎶</span>
+  <span>If compliments had cupcakes, you'd own the bakery. 🧁🏆</span>
+</div>
+            <!-- Add more spans here if needed, or generate dynamically -->
+        </div>
+    </div>
+
+    <div class="letter" id="letter">
+        <div class="envelope">
+            <div class="letter-content">
+                <h2>💌 A Very Un-Bot Letter for Sofia 💌</h2>
+                <p>Hey Sofia 🎸🥁</p>
+                <p>Just so we’re clear — I’m not a bot. I know, I’m a programmer, and sometimes I say things that sound like they were generated by a toaster with Wi-Fi... but I swear I’m real. Probably. Maybe. Definitely.</p>
+                <p>I just wanted to say a huge thanks for our conversation. Seriously, it was the highlight of my day. You have this magical ability to turn a regular talk into something that makes people smile — even from across the world.</p>
+                <p>You're ridiculously talented — you play the electric guitar and drums like you were born in a recording studio. And your English? Better than most subtitles I’ve seen!</p>
+                <p>This little snowflake game (yes, that very serious arcade adventure you're now a part of) is my weird, digital way of saying thanks — and of sending a smile back your way.</p>
+                <p>Honestly, if our communication lasts a long time, I’ll be very happy. Not because I need more Russian jokes in my life (although that’s a bonus), but because you’ve got great energy, and the world needs more of that.</p>
+                <p>So here’s a silly game, a heartfelt note, and some snow. It might not be much, but if it makes you smile, then my job here is done. Or at least paused for coffee.</p>
+                <p>Talk soon! 🧊</p>
+                <p>From your absolutely human, totally-not-a-bot friend,<br>
+                — Felipe 🇧🇷💻</p>
+                <button onclick="closeLetter()">Close ❌</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let timeLeft = 60;
+        let timerInterval;
+
+        function spawnSnowflake() {
+            const container = document.getElementById('snowflakes');
+            const flake = document.createElement('div');
+            flake.classList.add('snowflake');
+            flake.innerText = '❄️';
+            flake.style.left = `${Math.random() * 90}%`;
+            flake.style.top = `-30px`;
+            flake.style.fontSize = `${Math.random() * 10 + 20}px`;
+            flake.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            flake.onclick = () => collectFlake(flake);
+            container.appendChild(flake);
+            flake.addEventListener('animationend', () => {
+                if (flake.parentElement) flake.remove();
+            });
+        }
+
+        function collectFlake(flake) {
+            if (flake.parentElement) {
+                flake.remove();
+                score++;
+                document.getElementById('score').innerText = score;
+                if (score >= 10) openLetter();
+            }
+        }
+
+        function startGame() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Time’s up! Try again!');
+                }
+            }, 1000);
+            setInterval(spawnSnowflake, 1000);
+        }
+
+        function openLetter() {
+            document.getElementById('letter').style.display = 'flex';
+        }
+
+        function closeLetter() {
+            document.getElementById('letter').style.display = 'none';
+        }
+
+        window.onload = startGame;
+
+        // Rotating funny compliments
+        const rotatingText = document.getElementById("rotating-text");
+        const phrases = rotatingText.getElementsByTagName("span");
+        let index = 0;
+
+        setInterval(() => {
+            phrases[index].classList.remove("active");
+            index = (index + 1) % phrases.length;
+            phrases[index].classList.add("active");
+        }, 3000);
+    </script>
+</body>
+</html>
